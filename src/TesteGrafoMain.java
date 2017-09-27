@@ -6,7 +6,7 @@
 
 /**
  *
- * @author Windows
+ * @author ctomazoni
  */
 public class TesteGrafoMain {
     
