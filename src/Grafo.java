@@ -43,6 +43,46 @@ public class Grafo {
         return arestas.size();
     }
     
+    public boolean isVerticesAdjacentes(Vertice v1, Vertice v2) {
+        for (Aresta a : arestas) {
+            if ((a.getVerticeOrigem().equals(v1)
+                    && a.getVerticeDestino().equals(v2))
+                    || (a.getVerticeOrigem().equals(v2)
+                    && a.getVerticeDestino().equals(v1))) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public boolean isSimples() {
+        for (int i = 0; i < arestas.size(); i++) {
+            if (obterAresta(i).isLoop()) {
+                return false;
+            }
+            for (int j = i + 1; i < arestas.size(); j++) {
+                if (obterAresta(i).isArestaParalela(obterAresta(j))) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    
+    public boolean isMultigrafo() {
+        for (int i = 0; i < arestas.size(); i++) {
+            if (obterAresta(i).isLoop()) {
+                return true;
+            }
+            for (int j = i + 1; i < arestas.size(); j++) {
+                if (obterAresta(i).isArestaParalela(obterAresta(j))) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    
     public boolean isDenso() {
         //Cuidado: não é um resultado preciso
         return obterTamanhoGrafo() > obterOrdemGrafo();

@@ -30,6 +30,15 @@ public class Aresta {
         this.verticeOrigem = verticeOrigem;
         this.verticeDestino = verticeDestino;
     }
+    
+    public boolean isLoop() {
+        return getVerticeOrigem().equals(getVerticeDestino());
+    }
+    
+    public boolean isArestaParalela(Aresta a) {
+        return getVerticeOrigem().equals(a.getVerticeOrigem())
+                && getVerticeDestino().equals(a.getVerticeDestino());
+    }
 
     public String getNome() {
         return nome;
