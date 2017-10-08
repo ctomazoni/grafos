@@ -43,6 +43,16 @@ public class Grafo {
         return arestas.size();
     }
     
+    public ArrayList<Vertice> obterVerticesAdjacentes(Vertice v) {
+        ArrayList<Vertice> verticesAdjacentes = new ArrayList<>();
+        for (Vertice vertice : vertices) {
+            if (isVerticesAdjacentes(v, vertice)) {
+                verticesAdjacentes.add(vertice);
+            }
+        }
+        return verticesAdjacentes;
+    }
+    
     public boolean isVerticesAdjacentes(Vertice v1, Vertice v2) {
         for (Aresta a : arestas) {
             if ((a.getVerticeOrigem().equals(v1)

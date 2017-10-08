@@ -27,6 +27,8 @@ public class TesteGrafoMain {
         g.adicionaAresta(new Aresta("X", b, c));
         g.adicionaAresta(new Aresta("Y", c, b));
         g.adicionaAresta(new Aresta("Z", c, c));
+        g.adicionaAresta(new Aresta("W", a, d));
+        g.adicionaAresta(new Aresta("K", a, b));
         
         System.out.println(g.isGrafo() ? ("É um grafo " + (g.isDirigido() ? "" : "não ") + "dirigido " + (g.isNulo() ? "" : "não ") + "nulo.") : "Não é um grafo.");
         System.out.println("Quantidade de vértices: " + g.obterOrdemGrafo());
@@ -36,7 +38,12 @@ public class TesteGrafoMain {
         System.out.println("Grau do vertice C: " + g.obterGrauVertice("C"));
         System.out.println("Grau do vertice D: " + g.obterGrauVertice("D"));
         System.out.println("Grau do grafo: " + g.obterGrauGrafo());
-        
+        for (Vertice v1 : g.getVertices()) {
+            System.out.println("Vértices adjacentes ao vértice " + v1.getNome() + ": ");
+            for (Vertice v2 : g.obterVerticesAdjacentes(v1)) {
+                System.out.println(v2.getNome() + (v1.equals(v2) ? " (loop)" : ""));
+            }
+        }
     }
     
 }
