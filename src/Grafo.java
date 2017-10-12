@@ -103,14 +103,28 @@ public class Grafo {
         return obterTamanhoGrafo() <= obterOrdemGrafo();
     }
     
+    public int obterGrauVertice(Vertice v) {
+        int grau = 0;
+        for (Aresta a : arestas) {
+            /* A comparação com o vértice de origem e destino é
+            feita separadamente para o caso da aresta ser um
+            ciclo, o que aumenta o grau em 2. */
+            if (a.getVerticeOrigem().equals(v)) {
+                grau++;
+            }
+            if (a.getVerticeDestino().equals(v)) {
+                grau++;
+            }
+        }
+        return grau;
+    }
+    
     public int obterGrauVertice(int i) {
-        //falta implementar
-        return 0;
+        return obterGrauVertice(obterVertice(i));
     }
     
     public int obterGrauVertice(String n) {
-        //falta implementar
-        return 0;
+        return obterGrauVertice(obterVertice(n));
     }
 
     public int obterGrauGrafo() {
