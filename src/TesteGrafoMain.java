@@ -31,6 +31,8 @@ public class TesteGrafoMain {
         g.adicionaAresta(new Aresta("K", a, b));
         
         System.out.println(g.isGrafo() ? ("É um grafo " + (g.isDirigido() ? "" : "não ") + "dirigido " + (g.isNulo() ? "" : "não ") + "nulo.") : "Não é um grafo.");
+        System.out.println((g.isSimples()? "É" : "Não é") + " um grafo simples.");
+        System.out.println((g.isMultigrafo() ? "É" : "Não é") + " um multigrafo.");
         System.out.println("Quantidade de vértices: " + g.obterOrdemGrafo());
         System.out.println("Quantidade de arestas: " + g.obterTamanhoGrafo());
         System.out.println("Grau do vertice A: " + g.obterGrauVertice("A"));

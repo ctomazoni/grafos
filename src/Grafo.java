@@ -70,7 +70,7 @@ public class Grafo {
             if (obterAresta(i).isLoop()) {
                 return false;
             }
-            for (int j = i + 1; i < arestas.size(); j++) {
+            for (int j = i + 1; j < arestas.size(); j++) {
                 if (obterAresta(i).isArestaParalela(obterAresta(j))) {
                     return false;
                 }
@@ -84,7 +84,7 @@ public class Grafo {
             if (obterAresta(i).isLoop()) {
                 return true;
             }
-            for (int j = i + 1; i < arestas.size(); j++) {
+            for (int j = i + 1; j < arestas.size(); j++) {
                 if (obterAresta(i).isArestaParalela(obterAresta(j))) {
                     return true;
                 }
